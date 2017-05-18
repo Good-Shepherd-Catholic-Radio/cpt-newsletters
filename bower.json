@@ -1,0 +1,17 @@
+{
+	"name": "GSCR_CPT_Newsletters",
+	"version": "0.1.0",
+	"dependencies": {},
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Good-Shepherd-Catholic-Radio/cpt-newsletters.git"
+	}
+}
