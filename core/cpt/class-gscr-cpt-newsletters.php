@@ -142,7 +142,7 @@ class CPT_GSCR_Newsletters extends RBM_CPT {
 				
 			case 'newsletter_pdf_url' :
 				if ( rbm_get_field( $column, $post_id ) ) {
-					echo __( 'Yes', 'gscr-cpt-newsletters' );
+					echo '<span class="dashicons dashicons-yes"></span>';
 				}
 				break;
 			default : 
@@ -215,7 +215,7 @@ class CPT_GSCR_Newsletters extends RBM_CPT {
 	public function alter_permalink_html( $return, $post_id, $new_title, $new_slug, $post ) {
 
 		// No sense in a database query if it isn't the correct Post Type
-		if ( $post->post_type == 'newsletter' ) {
+		if ( $post->post_type == $this->post_type ) {
 
 			if ( $pdf = rbm_get_field( 'newsletter_pdf_url', $post_id ) ) {
 				
@@ -243,9 +243,9 @@ class CPT_GSCR_Newsletters extends RBM_CPT {
 	 */
 	public function the_permalink( $url ) {
 
-		if ( get_post_type() == 'newsletter' ) {
+		if ( get_post_type() == $this->post_type ) {
 
-			if ( $pdf = rbm_get_field( 'newsletter_pdf_url', $post_id ) ) {
+			if ( $pdf = rbm_get_field( 'newsletter_pdf_url', get_the_ID() ) ) {
 				
 				$pdf = wp_get_attachment_url( $pdf );
 
@@ -273,9 +273,9 @@ class CPT_GSCR_Newsletters extends RBM_CPT {
 	 */
 	public function get_permalink( $url, $post, $leavename = false, $sample = false ) {
 
-		if ( $post->post_type == 'newsletter' ) {
+		if ( $post->post_type == $this->post_type ) {
 
-			if ( $pdf = rbm_get_field( 'newsletter_pdf_url', $post_id ) ) {
+			if ( $pdf = rbm_get_field( 'newsletter_pdf_url', get_the_ID() ) ) {
 				
 				$pdf = wp_get_attachment_url( $pdf );
 
@@ -302,7 +302,7 @@ class CPT_GSCR_Newsletters extends RBM_CPT {
 		global $wp_query;
 		global $post;
 		
-		if ( is_single() && get_post_type() == 'newsletter' ) {
+		if ( is_single() && get_post_type() == $this->post_type ) {
 			
 			if ( $pdf = rbm_get_field( 'newsletter_pdf_url', $post->ID ) ) {
 				
