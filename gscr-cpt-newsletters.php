@@ -3,7 +3,7 @@
  * Plugin Name: CPT Newsletters
  * Plugin URI: https://github.com/Good-Shepherd-Catholic-Radio/cpt-newsletters
  * Description: Creates the "Newsletters" Custom Post Type
- * Version: 0.1.0
+ * Version: 1.0.0
  * Text Domain: gscr-cpt-newsletters
  * Author: Eric Defore
  * Author URI: http://realbigmarketing.com/
